@@ -11,18 +11,17 @@ window.onload = function () {
   let timerInterval;
 
   toggleIngredientsBtn.addEventListener('click', () => {
-    ingredientsList.classList.toggle('hidden');
-    toggleIngredientsBtn.textContent = ingredientsList.classList.contains('hidden')
+    ingredientsList.classList.toggle('fade');
+    toggleIngredientsBtn.textContent = ingredientsList.classList.contains('fade')
       ? 'Show Ingredients'
       : 'Hide Ingredients';
   });
 
   startCookingBtn.addEventListener('click', () => {
-    stepsList.classList.remove('hidden');
+    stepsList.classList.remove('fade');
     const steps = stepsList.querySelectorAll('li');
     steps.forEach(step => step.style.background = '');
 
-    // Timer logic
     clearInterval(timerInterval);
     timer = 0;
     timerDisplay.textContent = 'Timer: 0s';
@@ -31,7 +30,6 @@ window.onload = function () {
       timerDisplay.textContent = `Timer: ${timer}s`;
     }, 1000);
 
-    // Step highlight + progress
     if (currentStep < steps.length) {
       steps[currentStep].style.background = '#ffe0b2';
       const progress = ((currentStep + 1) / steps.length) * 100;
@@ -42,16 +40,18 @@ window.onload = function () {
       currentStep = 0;
       progressBar.style.width = '0%';
       clearInterval(timerInterval);
+      stepsList.classList.add('fade');
     }
   });
 };
 
-// Chat Query Functions
+// Chat box toggle
 function toggleChat() {
   const chatBox = document.getElementById('chat-box');
-  chatBox.classList.toggle('hidden');
+  chatBox.classList.toggle('fade');
 }
 
+// Chat submit
 function submitQuery() {
   const textArea = document.querySelector('#chat-box textarea');
   const message = textArea.value.trim();
@@ -61,6 +61,6 @@ function submitQuery() {
   } else {
     alert('Thanks! We got your message: ' + message);
     textArea.value = '';
-    toggleChat(); // Hide chat box after submission
+    toggleChat();
   }
 }
