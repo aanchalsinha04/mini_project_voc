@@ -41,17 +41,29 @@ button:hover {
   background: #5d4037;
 }
 
-.hidden {
-  display: none;
+/* Animated list and step visibility */
+ul, ol {
+  opacity: 1;
+  max-height: 1000px;
+  overflow: hidden;
+  transition: opacity 0.5s ease, max-height 0.5s ease;
 }
 
+ul.fade, ol.fade, #chat-box.fade {
+  opacity: 0;
+  max-height: 0;
+  pointer-events: none;
+}
+
+/* Hover effect */
 li {
-  transition: color 0.3s;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 li:hover {
   color: #6d4c41;
   text-decoration: underline;
+  transform: scale(1.02);
 }
 
 .prep-info {
@@ -116,6 +128,7 @@ li:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
   padding: 15px;
   z-index: 999;
+  transition: opacity 0.5s ease, max-height 0.5s ease;
 }
 
 #chat-box h3 {
