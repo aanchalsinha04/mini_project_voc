@@ -13,7 +13,7 @@
     <img src="chocolate-cake.jpeg" alt="Chocolate Cake" />
 
     <button id="toggle-ingredients">Show Ingredients</button>
-    <ul id="ingredients" class="hidden">
+    <ul id="ingredients" class="fade">
       <li>1½ cups flour</li>
       <li>1 cup sugar</li>
       <li>½ cup cocoa powder</li>
@@ -30,7 +30,7 @@
     <button id="start-cooking">Start Cooking</button>
     <p id="timer-display">Timer: 0s</p>
 
-    <ol id="steps" class="hidden">
+    <ol id="steps" class="fade">
       <li>Preheat the oven to 180°C.</li>
       <li>Mix all dry ingredients.</li>
       <li>Add milk, oil, and vanilla.</li>
@@ -50,7 +50,7 @@
   <div id="chat-toggle" onclick="toggleChat()">💬</div>
 
   <!-- Chat Box -->
-  <div id="chat-box" class="hidden">
+  <div id="chat-box" class="fade">
     <h3>Ask a question!</h3>
     <textarea placeholder="Type your question here..."></textarea>
     <button onclick="submitQuery()">Submit</button>
